@@ -1,56 +1,81 @@
 # CodeAlpha_BugBountyTool-
 I developed a defensive, bug-bounty–oriented static analysis tool in Python as part of my internship with CodeAlpha, focused on identifying common security vulnerabilities, logic flaws, and misconfigurations in source code.
-🔐 CodeAlpha_BugbountyTool
 
-CodeAlpha_BugbountyTool is a lightweight static code analysis tool designed to simulate how entry-level to junior bug bounty researchers and SOC analysts perform manual and automated code reviews.
+# 🔐 CodeAlpha_BugbountyTool
 
-The tool scans Python source code to identify common security vulnerabilities, logic flaws, and security misconfigurations frequently reported in real-world bug bounty programs.
+**CodeAlpha_BugbountyTool** is a lightweight **static code analysis tool** designed to simulate how **entry-level to junior bug bounty researchers and SOC analysts** perform manual and automated code reviews.
 
-⚠️ Disclaimer
-This tool is intended for defensive security testing and educational purposes only.
-Use it only on code you own or have explicit authorization to test.
+The tool scans **Python source code** to identify **common security vulnerabilities, logic flaws, and security misconfigurations** frequently reported in real-world bug bounty programs.
 
-🧠 Features & Detection Capabilities
+> ⚠️ **Disclaimer**
+> This tool is intended for **defensive security testing and educational purposes only**.
+> Use it only on code you own or have explicit authorization to test.
+
+---
+
+## 🧠 Features & Detection Capabilities
 
 The analyzer focuses on high-impact issues that beginner to intermediate security analysts encounter during code reviews.
 
-No.	Vulnerability Category	Detection Pattern	Severity	Classification
-1	Code Injection	eval(), exec()	HIGH	Injection
-2	Command Injection	shell=True in subprocess	HIGH	Injection
-3	Hardcoded Secrets	Passwords, API keys in code	MEDIUM	Sensitive Data Exposure
-4	Debug Mode Enabled	debug=True	HIGH	Security Misconfiguration
-5	Weak Cryptography	MD5, SHA1	MEDIUM	Cryptographic Failure
-6	Logic Flaws	== None comparison	LOW	Logic Error
-⚙️ Project Setup (VS Code)
-Step 1️⃣ Create the Project Directory
+| No. | Vulnerability Category | Detection Pattern           | Severity | Classification            |
+| --: | ---------------------- | --------------------------- | -------- | ------------------------- |
+|   1 | Code Injection         | `eval()`, `exec()`          | HIGH     | Injection                 |
+|   2 | Command Injection      | `shell=True` in subprocess  | HIGH     | Injection                 |
+|   3 | Hardcoded Secrets      | Passwords, API keys in code | MEDIUM   | Sensitive Data Exposure   |
+|   4 | Debug Mode Enabled     | `debug=True`                | HIGH     | Security Misconfiguration |
+|   5 | Weak Cryptography      | `MD5`, `SHA1`               | MEDIUM   | Cryptographic Failure     |
+|   6 | Logic Flaws            | `== None` comparison        | LOW      | Logic Error               |
+
+---
+
+## ⚙️ Project Setup (VS Code)
+
+### Step 1️⃣ Create the Project Directory
+
+```bash
 mkdir Bugbounty
 cd Bugbounty
+```
 
-Step 2️⃣ Create the Analyzer Script
+---
+
+### Step 2️⃣ Create the Analyzer Script
 
 Create a Python file named:
 
-bugbounty_analyzer.py
-
+```text
+bugbounty_analyzer_tool.py
+```
 
 This file contains the static analysis logic that scans Python source files for insecure patterns.
 
-Step 3️⃣ Create a Test Target File
+---
+
+### Step 3️⃣ Create a Test Target File
 
 Create a sample file to analyze, for example:
 
+```text
 target.py
-
+```
 
 Add intentionally vulnerable code to validate detection results.
 
-🏃‍♂️ Running the Tool
+---
+
+## 🏃‍♂️ Running the Tool
 
 Ensure you are inside the project directory, then execute the analyzer using:
 
-python bugbounty_analyzer.py target.py
+```bash
+python bugbounty_analyzer_tool.py target.py
+```
 
-📊 Sample Output
+---
+
+## 📊 Sample Output
+
+```text
 Security Findings:
 --------------------------------------------------
 
@@ -62,46 +87,38 @@ Possible hardcoded secret assigned to 'password'
 
 [HIGH] Code Injection (line 6):
 Use of dangerous function 'eval'
+```
 
-🎯 Learning Outcomes
+---
+
+## 🎯 Learning Outcomes
 
 By building and using this tool, you will:
 
-Understand how static analysis detects vulnerabilities
+* Understand **how static analysis detects vulnerabilities**
+* Learn **common bug bounty findings**
+* Improve **secure coding awareness**
+* Gain hands-on experience relevant to:
 
-Learn common bug bounty findings
+  * Bug bounty programs
+  * SOC analyst roles
+  * Secure code reviews
 
-Improve secure coding awareness
+---
 
-Gain hands-on experience relevant to:
+## 🚀 Future Enhancements (Planned)
 
-Bug bounty programs
+* Support for additional languages (JavaScript, PHP)
+* Severity scoring improvements
+* JSON / HTML report export
+* Pattern-based CVE mapping
+* Performance optimization for large codebases
 
-SOC analyst roles
+---
 
-Secure code reviews
+## 🛡️ License
 
-🚀 Future Enhancements (Planned)
-
-Support for additional languages (JavaScript, PHP)
-
-Severity scoring improvements
-
-JSON / HTML report export
-
-Pattern-based CVE mapping
-
-Performance optimization for large codebases
-
-🛡️ License
-
-This project is released for educational and defensive security research purposes.
+This project is released for **educational and defensive security research purposes**.
 
 
 
-False-positive reduction
-
-📌 Disclaimer
-
-This tool is intended for educational and ethical security testing only.
-Use it only on code you own or have explicit permission to analyze.
