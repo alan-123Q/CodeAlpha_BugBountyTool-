@@ -79,14 +79,9 @@ python bugbounty_analyzer_tool.py target.py
 Security Findings:
 --------------------------------------------------
 
-[HIGH] Security Misconfiguration (line 1):
-Debug mode enabled in production code
+[MEDIUM] Hardcoded Secret (line 4): Potential hardcoded secret in variable 'PASSWORD'
 
-[MEDIUM] Hardcoded Secret (line 3):
-Possible hardcoded secret assigned to 'password'
-
-[HIGH] Code Injection (line 6):
-Use of dangerous function 'eval'
+[LOW] Logic Flaw (line 6): Use 'is None' instead of '=='
 ```
 
 ---
